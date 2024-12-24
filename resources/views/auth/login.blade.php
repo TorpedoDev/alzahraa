@@ -120,6 +120,14 @@
           {{session('error')}}
         </div>
         @endif
+@error('login')    
+        <div class="alert alert-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg>
+          {{$message}}
+        </div>
+        @enderror
         {{-- <div class="row"> --}}
             {{-- <div class="col-md-10"> --}}
         <h2>معمل ألبان الزهراء </h2>
@@ -133,9 +141,6 @@
             <div class="mb-3">
                 <label for="email" class="form-label">البريد اﻻلكتروني أو اسم المستخدم </label>
                 <input type="text" class="form-control" id="email"  name="login" value="{{old('login')}}" >
-                @error('login')
-                    <p class="text-danger">{{$message}}</p>
-                @enderror
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">كلمة المرور</label>
